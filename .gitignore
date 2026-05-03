@@ -1,0 +1,230 @@
+# =============================================================================
+# AEROS .gitignore
+# =============================================================================
+# Strategy: keep all source code (.py / .sh / .tex / .md), ignore data
+# products (.npz / .pth), build artifacts (.log / .aux / .pdf), and
+# environment crap (.pyc / __pycache__ / .vscode).
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+.installed.cfg
+develop-eggs/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# mypy / ruff / pylint
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.pylintrc.local
+
+# -----------------------------------------------------------------------------
+# PyTorch / ML artifacts
+# -----------------------------------------------------------------------------
+# Trained checkpoints — too big for git (10 MB to several GB each)
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+checkpoints/
+checkpoints_*/
+ckpt/
+ckpts/
+
+# Numpy serialized data — experiment outputs
+*.npz
+*.npy
+
+# HDF5 / pickle
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# ONNX / TF artifacts (if any)
+*.onnx
+*.pb
+
+# TensorBoard
+runs/
+tb_logs/
+tensorboard/
+
+# Weights & Biases
+wandb/
+
+# -----------------------------------------------------------------------------
+# AEROS experiment artifacts
+# -----------------------------------------------------------------------------
+# Sweep / fit results
+p7_*_results.npz
+p5_*_results.npz
+phase*.npz
+*_sweep.npz
+*_fit.npz
+
+# Density / event-camera intermediate files
+density_*.npz
+m1_*.npz
+phaseA_*.npz
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+logs/
+*.log
+nohup.out
+*.out
+
+# -----------------------------------------------------------------------------
+# Datasets — never commit raw data
+# -----------------------------------------------------------------------------
+datasets/
+data/
+*.aedat
+*.aedat4
+cifar-10-batches-py/
+cifar-10-python.tar.gz
+DVS128Gesture/
+N-MNIST/
+NCALTECH101/
+events_np/
+frames_np/
+frames_number_*/
+
+# -----------------------------------------------------------------------------
+# LaTeX paper artifacts
+# -----------------------------------------------------------------------------
+# Compilation byproducts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.glg
+*.glo
+*.gls
+*.acn
+*.acr
+*.alg
+*.nav
+*.snm
+*.vrb
+*.dvi
+
+# Build dirs
+.texpadtmp/
+_minted-*/
+
+# Compiled PDF — comment out if you want to commit the paper PDF
+*.pdf
+
+# Track only specific PDFs (uncomment + add lines below if you want to keep some):
+# !aeros.pdf
+# !catfuse.pdf
+
+# Editor swap files
+*.tex.bak
+*.tex~
+
+# -----------------------------------------------------------------------------
+# Editor / IDE
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.project
+.settings/
+
+# -----------------------------------------------------------------------------
+# Git scratch
+# -----------------------------------------------------------------------------
+*.orig
+*.rej
+
+# -----------------------------------------------------------------------------
+# Project-specific transient files
+# -----------------------------------------------------------------------------
+# Local config / secrets
+.env.local
+secrets.json
+config.local.*
+
+# Profiling output
+*.prof
+*.lprof
+nsys-rep
+nsight-cuprof-report-*
+
+# Scratch / draft
+scratch/
+tmp/
+temp/
+draft/
+notes_local.md
+TODO.local.md
+
+# Anything explicitly marked as private / local
+*.local
+*.private
+*.7z*.tar.gz
+*.tar
+*.zip
