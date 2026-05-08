@@ -70,9 +70,13 @@ def build_network(name, num_classes=10, input_size=32, cifar10_stem=True,
     """Build a network by name. Applies CIFAR-10 stem adaptation
     (3x3 stride=1 conv1 + Identity maxpool) for ResNet/SEW families,
     matching CATFuse phaseC1 protocol.
+
+    Surrogate function: ATan (SJ default). Sigmoid causes gradient
+    vanishing in deep sequential SNNs (AlexNet/ZFNet/VGG without
+    residual connections).
     """
     common_lif = dict(spiking_neuron=neuron.LIFNode,
-                      surrogate_function=surrogate.Sigmoid(),
+                      surrogate_function=surrogate.ATan(),
                       detach_reset=True,
                       tau=tau,
                       v_threshold=v_threshold,
@@ -128,21 +132,21 @@ def build_network(name, num_classes=10, input_size=32, cifar10_stem=True,
         from models.spiking_alexnet import SpikingAlexNet
         m = SpikingAlexNet(num_classes=num_classes,
                            spiking_neuron=neuron.LIFNode,
-                           tau=tau, surrogate_function=surrogate.Sigmoid(),
+                           tau=tau, surrogate_function=surrogate.ATan(),
                            detach_reset=True, v_threshold=v_threshold,
                            input_size=input_size)
     elif name == 'ZFNet':
         from models.spiking_zfnet import SpikingZFNet
         m = SpikingZFNet(num_classes=num_classes,
                          spiking_neuron=neuron.LIFNode,
-                         tau=tau, surrogate_function=surrogate.Sigmoid(),
+                         tau=tau, surrogate_function=surrogate.ATan(),
                          detach_reset=True, v_threshold=v_threshold,
                          input_size=input_size)
     elif name == 'MobileNet-V1':
         from models.spiking_mobilenet import SpikingMobileNetV1
         m = SpikingMobileNetV1(num_classes=num_classes,
                                spiking_neuron=neuron.LIFNode,
-                               tau=tau, surrogate_function=surrogate.Sigmoid(),
+                               tau=tau, surrogate_function=surrogate.ATan(),
                                detach_reset=True, v_threshold=v_threshold,
                                input_size=input_size)
 

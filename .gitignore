@@ -30,6 +30,8 @@ wheels/
 share/python-wheels/
 MANIFEST
 
+download/
+
 # Virtual environments
 venv/
 env/

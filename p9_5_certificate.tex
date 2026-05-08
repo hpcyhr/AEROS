@@ -1,0 +1,47 @@
+% AEROS Phase 2 Exp 5 — Streamability Certificate Truth Table
+\begin{table}[t]
+\centering
+\small
+\caption{Streamability certificate verdicts across 17 SNN architectures
+(Suite~A), recurrent multi-family probes (Suite~B), and synthesized
+counter-examples (Suite~C). All Suite~A and~B nets receive
+\textsc{accept-carry}, validating that the carry-streamable scope covers
+the full evaluation suite. Suite~C exhibits all three reject categories
+plus the halo case, validating the rule library.}
+\label{tab:certificate}
+\begin{tabular}{llrr}
+\toprule
+Network & Verdict & Leaf modules & Match \\
+\midrule
+\multicolumn{4}{l}{\textit{Suite A — Trained 17-architecture SNN suite}} \\
+SR-18 & \textsc{accept-\hspace{0pt}carry} & 60 & \checkmark \\
+SR-34 & \textsc{accept-\hspace{0pt}carry} & 108 & \checkmark \\
+SR-50 & \textsc{accept-\hspace{0pt}carry} & 158 & \checkmark \\
+SEW-18 & \textsc{accept-\hspace{0pt}carry} & 63 & \checkmark \\
+SEW-50 & \textsc{accept-\hspace{0pt}carry} & 162 & \checkmark \\
+SEW-101 & \textsc{accept-\hspace{0pt}carry} & 315 & \checkmark \\
+VGG-11-BN & \textsc{accept-\hspace{0pt}carry} & 37 & \checkmark \\
+VGG-13-BN & \textsc{accept-\hspace{0pt}carry} & 43 & \checkmark \\
+VGG-16-BN & \textsc{accept-\hspace{0pt}carry} & 52 & \checkmark \\
+VGG-19-BN & \textsc{accept-\hspace{0pt}carry} & 61 & \checkmark \\
+AlexNet & \textsc{accept-\hspace{0pt}carry} & 26 & \checkmark \\
+ZFNet & \textsc{accept-\hspace{0pt}carry} & 26 & \checkmark \\
+MobileNet-V1 & \textsc{accept-\hspace{0pt}carry} & 84 & \checkmark \\
+Spikformer-T & \textsc{accept-\hspace{0pt}carry} & 95 & \checkmark \\
+Spikformer-S & \textsc{accept-\hspace{0pt}carry} & 133 & \checkmark \\
+QKFormer-T & \textsc{accept-\hspace{0pt}carry} & 182 & \checkmark \\
+SDTv1-T & \textsc{accept-\hspace{0pt}carry} & 179 & \checkmark \\
+\midrule
+\multicolumn{4}{l}{\textit{Suite B — Recurrent multi-family}} \\
+ConvLSTM & \textsc{accept-\hspace{0pt}carry} & 1 & \checkmark \\
+ConvGRU & \textsc{accept-\hspace{0pt}carry} & 4 & \checkmark \\
+\midrule
+\multicolumn{4}{l}{\textit{Suite C — Synthesized counter-examples}} \\
+CausalConv1D-r3 & \textsc{accept-\hspace{0pt}with-\hspace{0pt}halo} & 2 & \checkmark \\
+NonCausalConv1D-r5 & \textsc{accept-\hspace{0pt}with-\hspace{0pt}halo} & 2 & \checkmark \\
+TAxisLayerNorm & \textsc{reject-\hspace{0pt}silent} & 3 & \checkmark \\
+TWAttention & \textsc{reject-\hspace{0pt}structural} & 3 & \checkmark \\
+BiLSTM & \textsc{reject-\hspace{0pt}silent} & 3 & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
