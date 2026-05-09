@@ -1,0 +1,34 @@
+{
+  "config": {
+    "T": 8,
+    "B": 1,
+    "C": 3,
+    "H_snn": 64,
+    "H_extended": 32,
+    "max_memory_mb": 8192,
+    "archs": [
+      "SR-18"
+    ],
+    "output": "autochunk_results/cell_SR-18_T8_B1.json"
+  },
+  "results": [
+    {
+      "arch": "SR-18",
+      "input_shape": [
+        8,
+        1,
+        3,
+        64,
+        64
+      ],
+      "max_memory_mb": 8192,
+      "status": "trace_exploded",
+      "n_chunks": 0,
+      "chunk_infos": [],
+      "exception": "RecursionError during symbolic_trace",
+      "exception_type": "RecursionError",
+      "exception_traceback": null,
+      "recursion_limit": 100000
+    }
+  ]
+}

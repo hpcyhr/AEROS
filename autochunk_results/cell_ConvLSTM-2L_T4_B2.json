@@ -1,0 +1,34 @@
+{
+  "config": {
+    "T": 4,
+    "B": 2,
+    "C": 3,
+    "H_snn": 128,
+    "H_extended": 32,
+    "max_memory_mb": 4096,
+    "archs": [
+      "ConvLSTM-2L"
+    ],
+    "output": "autochunk_results/cell_ConvLSTM-2L_T4_B2.json"
+  },
+  "results": [
+    {
+      "arch": "ConvLSTM-2L",
+      "input_shape": [
+        4,
+        2,
+        3,
+        32,
+        32
+      ],
+      "max_memory_mb": 4096,
+      "status": "trace_exploded",
+      "n_chunks": 0,
+      "chunk_infos": [],
+      "exception": "RecursionError during symbolic_trace",
+      "exception_type": "RecursionError",
+      "exception_traceback": null,
+      "recursion_limit": 100000
+    }
+  ]
+}
